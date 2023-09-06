@@ -1,0 +1,106 @@
+﻿body {
+    font-family: roboto;
+}
+
+.header {
+    background: #1f2937;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+
+}
+.play {
+    color:azure;
+    font-size: 48px;
+    font-family:roboto;
+}
+
+.buttons {
+    background-color: darkgrey;
+    display: flex;
+    justify-content: space-around;
+    padding:40px;
+    
+
+}
+
+button {
+    border-radius: 6px;
+    border: solid black;
+    padding: 10px;
+    width:100px;
+    font-size: 16px;
+    transition-duration:0.4s;
+}
+button:hover {
+    background-color: #b7b1b1;
+    color: white;
+
+}
+.rock {
+    
+}
+
+.paper {
+
+}
+
+.scissors {
+
+}
+#diplay {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    gap: 30%;
+    padding: 40px 0 0 0;
+    
+
+}
+
+#player {
+    border: solid black;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:48px;
+    font-weight:900;
+}
+
+#computer {
+    border: solid black;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.report {
+    display:flex;
+    justify-content: center;
+    
+    padding: 0;
+}
+.choice {
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+     
+}
+p {
+    font-size: 24px;
+
+}
+
