@@ -1,19 +1,21 @@
 let rps = ['rock', 'paper', 'scissors'];
 let compChoice;
 let playerSelection;
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.btn');
 let playerScore = document.querySelector('#player');
 let machineScore = document.querySelector('#computer');
 let report = document.querySelector('#report');
 let repoChoice = document.querySelector('#choice');
+let start = document.querySelector('#start');
 let player = 0;
 let machineWin = 0;
+let gameover = document.querySelector('#gameover');
 
 
 function getComputerChoice() {
     let index = Math.floor(Math.random() * rps.length);
     let computerSelection = rps[index];
-    console.log(computerSelection);
+   // console.log(computerSelection);
     return computerSelection;
 }
 
@@ -81,13 +83,18 @@ function score(win) {
    
 
     if (player == 5) {
-        reset();
+        buttons.forEach(button => { button.removeEventListener('click', getPlayerChoice) });
         report.textContent = "Player wins!!!!!";
+        repoChoice.textContent = "Press Play";
+        gameover.textContent = "GAME \n OVER";
        
     }
     else if (machineWin == 5) {
-        reset();
+        buttons.forEach(button => { button.removeEventListener('click', getPlayerChoice) });
         report.textContent = "A la Machina wins!!!!!";
+        repoChoice.textContent = "Press Play";
+        gameover.textContent = "GAME \n OVER";
+        
        
     }
    
@@ -103,8 +110,11 @@ function game() {
     while (i < 5) {
 
         buttons.forEach(button => { button.addEventListener('click', getPlayerChoice) });
-         i++;
+       
+        i++;
+
     }
+    repoChoice.textContent = "";
     return 0;
 }
 
@@ -114,7 +124,9 @@ function game() {
 
 function getPlayerChoice(e) {
     let playerSelection = (e.target.id);
-    playerChoice = e.target.textContent;
+   // playerChoice = e.target.textContent;
+   console.log(playerSelection);
+    
     let winny = playRound(getComputerChoice(), playerSelection);
     return winny;
 }
@@ -122,10 +134,15 @@ function getPlayerChoice(e) {
 function reset() {
     player = 0;
     machineWin = 0;
+    playerScore.textContent = player;
+    machineScore.textContent = machineWin;
+    gameover.textContent = "";
+    report.textContent = "";
+
 }
 
-for (let i = 0; i < 5; i++) {
-
-    game();
+start.addEventListener('click', game);
+start.addEventListener('click', reset);
+    
    
-}
+
